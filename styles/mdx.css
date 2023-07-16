@@ -1,0 +1,74 @@
+[data-rehype-pretty-code-fragment] code {
+  @apply mr-4 grid min-w-full break-words rounded-none border-0 bg-transparent p-0 leading-7;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+
+pre > code {
+  counter-reset: line;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 0.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: gray;
+}
+
+code[data-line-numbers-max-digits='2'] > [data-line]::before {
+  width: 2rem;
+}
+
+code[data-line-numbers-max-digits='3'] > [data-line]::before {
+  width: 3rem;
+}
+
+pre[data-theme='dark'] {
+  @apply hidden;
+}
+
+html.dark pre[data-theme='dark'] {
+  @apply m-0 inline-block w-full;
+}
+
+pre[data-theme='light'] {
+  @apply m-0 inline-block w-full;
+}
+
+html.dark pre[data-theme='light'] {
+  @apply hidden;
+}
+
+[data-rehype-pretty-code-title][data-theme='dark'] {
+  @apply hidden;
+}
+
+html.dark [data-rehype-pretty-code-title][data-theme='dark'] {
+  @apply block bg-accent;
+}
+
+[data-rehype-pretty-code-title][data-theme='light'] {
+  @apply block bg-muted;
+}
+
+html.dark [data-rehype-pretty-code-title][data-theme='light'] {
+  @apply hidden;
+}
+
+[data-highlighted-line] {
+  @apply m-0 inline-block w-full bg-gray-300 px-0  dark:bg-gray-300/10;
+}
+
+[data-highlighted-line]::before {
+  @apply border-l-2 border-l-blue-500;
+}
+[data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
