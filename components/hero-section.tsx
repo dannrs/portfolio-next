@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 export function HeroSection() {
   return (
     <section className='flex h-screen w-screen items-center justify-center'>
-      <div className='container mx-auto flex flex-col items-center justify-center md:flex-row-reverse lg:max-w-6xl'>
+      <div className='container mx-auto flex flex-col items-center justify-center md:flex-row-reverse w-60'>
         <div className='flex w-3/4 justify-center md:w-1/2 md:justify-end'>
           <Image
             src='/images/hero.svg'
