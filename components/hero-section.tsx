@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
   return (
-    <section className='flex h-screen w-screen items-center justify-center'>
+    <section className='flex h-screen items-center justify-center'>
       <div className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'>
         <div className='flex w-3/4 justify-center md:w-1/2 md:justify-end'>
           <Image

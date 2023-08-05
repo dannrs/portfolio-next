@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 export function SkillSection() {
   const ref = useRef<HTMLDivElement>(null)
   return (
-    <section className='flex w-screen items-start justify-center'>
+    <section className='flex items-start justify-center'>
       <div className='container md:max-w-5xl'>
         <h2 className='mb-4 font-heading text-3xl md:mb-8 md:text-4xl'>
           Skills
