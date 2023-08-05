@@ -31,6 +31,7 @@ module.exports = {
         blur: 'hsl(var(--blur) / 0.8)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        'foreground-90': 'hsl(var(--foreground) / 0.90)',
         'foreground-80': 'hsl(var(--foreground) / 0.88)',
         primary: {
           DEFAULT: 'hsl(var(--primary))',

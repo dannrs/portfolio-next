@@ -14,7 +14,7 @@ export function MobileNavigation({ items, children}: MobileNavigationProps) {
   return (
     <header
       className={cn(
-        'fixed right-0 top-0 pt-12 grid border-b border-b-muted bg-blur backdrop-blur-xl backdrop-filter animate-in slide-in-from-bottom-80 md:hidden'
+        'fixed right-0 w-full top-0 pt-12 grid border-b border-b-muted bg-blur backdrop-blur-xl backdrop-filter animate-in slide-in-from-bottom-80 md:hidden'
       )}
     >
       <div className='relative grid p-0 shadow-md'>

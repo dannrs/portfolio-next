@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className='flex items-center justify-center'>
-      <div className='container relative bottom-0 mt-8 md:max-w-5xl'>
+      <div className='container relative bottom-0 mt-12 md:mt-16 md:max-w-5xl'>
         <div className='flex flex-col items-center justify-center space-y-4 border-t py-4'>
           <div className='flex w-full flex-col gap-12 md:flex-row'>
             <div className='grid w-full grid-cols-2'>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
@@ -11,10 +12,16 @@ import { formatDate } from '@/lib/utils'
 
 export default function BlogCard() {
   const ref = useRef<HTMLDivElement>(null)
-  const posts = allPosts
+  const pathname = usePathname()
+  let posts = allPosts
     .filter(post => post.published)
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-    .slice(0, 3)
+
+  console.log(pathname)
+    
+    if (pathname === '/') {
+      posts = posts.slice(0, 3)
+    }
 
   return (
     <>
@@ -64,7 +71,7 @@ export default function BlogCard() {
                 </div>
               )}
               <Link href={post.slug} className='absolute inset-0'>
-                <span className='sr-only'>View Playlist</span>
+                <span className='sr-only'>View post</span>
               </Link>
             </article>
           ))}
