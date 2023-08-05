@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 export function HeroSection() {
   return (
     <section className='flex h-screen w-screen items-center justify-center'>
-      <div className='container mx-auto flex flex-col items-center justify-center md:flex-row-reverse w-60'>
+      <div className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'>
         <div className='flex w-3/4 justify-center md:w-1/2 md:justify-end'>
           <Image
             src='/images/hero.svg'
@@ -20,11 +20,11 @@ export function HeroSection() {
           <h1 className='font-heading text-4xl md:text-5xl'>
             {siteConfig.name}
           </h1>
-          <p className='max-w-4xl text-center text-lg text-foreground/80 md:text-left md:text-xl'>
-            An enthusiastic React developer who loves trying new things.
+          <p className='max-w-4xl text-center text-lg text-foreground-80 md:text-left md:text-xl'>
+            Enthusiastic web developer from Sumedang, Indonesia.
           </p>
           <div className='pt-2'>
-            <Link href='#'>
+            <Link href='#overview'>
               <Button className='mr-4'>Learn more</Button>
             </Link>
             <Link href='/contact'>

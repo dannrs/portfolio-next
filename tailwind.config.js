@@ -21,6 +21,9 @@ module.exports = {
       width: {
         60: '60rem'
       },
+      maxWidth: {
+        '5xl': '60rem'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -28,7 +31,7 @@ module.exports = {
         blur: 'hsl(var(--blur) / 0.8)',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        'foreground-80': 'hsl(var(--foreground) / 0.8)',
+        'foreground-80': 'hsl(var(--foreground) / 0.88)',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'

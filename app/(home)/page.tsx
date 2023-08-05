@@ -6,7 +6,7 @@ import { WritingSection } from '@/components/writing-section'
 
 export default function Index() {
   return (
-    <div className='flex flex-col gap-[3rem] pb-12'>
+    <div className='flex flex-col gap-8 md:gap-12 pb-12'>
       <HeroSection />
       <ProjectSection />
       <WritingSection />

@@ -1,11 +1,11 @@
-import { recentlyPlayedSong} from '@/lib/spotify'
+import { getRecentlyPlayed } from '@/lib/spotify'
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get('path') || '/'
   revalidatePath(path)
-  const response = await recentlyPlayedSong()
+  const response = await getRecentlyPlayed()
 
   const song = await response.json()
 

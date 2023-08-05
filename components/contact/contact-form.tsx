@@ -6,6 +6,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
@@ -84,8 +85,9 @@ export function ContactForm() {
             name='name'
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder='Your name' {...field} />
+                  <Input placeholder='John Doe' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -96,8 +98,9 @@ export function ContactForm() {
             name='email'
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='Email address' {...field} />
+                  <Input placeholder='john.doe@foo.bar' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -108,6 +111,7 @@ export function ContactForm() {
             name='subject'
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Subject</FormLabel>
                 <FormControl>
                   <Input placeholder='Subject' {...field} />
                 </FormControl>
@@ -120,14 +124,15 @@ export function ContactForm() {
             name='message'
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Message</FormLabel>
                 <FormControl>
-                  <Textarea placeholder='Message' className='h-32' {...field} />
+                  <Textarea placeholder='Your message' className='h-32' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type='submit'>
+          <Button type='submit' size='lg'>
             Send
           </Button>
         </form>

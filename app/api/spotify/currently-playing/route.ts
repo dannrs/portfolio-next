@@ -1,11 +1,11 @@
-import { nowPlayingSong } from '@/lib/spotify'
+import { getCurrentlyPlaying } from '@/lib/spotify'
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get('path') || '/'
   revalidatePath(path)
-  const response = await nowPlayingSong()
+  const response = await getCurrentlyPlaying()
 
   if (response.status === 204 || response.status > 400) {
     return NextResponse.json({ isPlaying: false })

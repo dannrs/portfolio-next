@@ -24,10 +24,9 @@ export function ModeToggle() {
   return (
     <div>
       <Button
-        variant='icon-only'
-        size='icon-sm'
+        variant='ghost'
+        size='icon'
         onClick={handleModeToggle}
-        className='my-2'
       >
         {isDarkMode ? (
           <Moon className='h-[1.2rem] w-[1.2rem]' />
