@@ -1,4 +1,9 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import { Variants } from 'framer-motion'
+
+export const div = motion.div
 
 export const RevealAnimation: Variants = {
   hidden: {
@@ -9,7 +14,7 @@ export const RevealAnimation: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 0.1
+      delay: 0.2
     }
   }
 }

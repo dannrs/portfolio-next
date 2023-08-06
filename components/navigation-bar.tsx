@@ -42,24 +42,30 @@ export function NavigationBar({ items, children }: NavigationProps) {
     <header className='flex items-center justify-center'>
       <div
         ref={navigationBarRef}
-        className='md:max-w-5xl container fixed top-0 z-40 bg-blur backdrop-blur-lg backdrop-filter'
+        className='container fixed top-0 z-40 bg-blur backdrop-blur-lg backdrop-filter md:max-w-5xl'
       >
         <div className='flex h-10 items-center justify-between py-6'>
           <Link href='/' className='z-40'>
-            <div className='flex gap-2 items-center justify-center'>
-            <Image src='/logo.svg' width={16} height={16} alt='Danni Ramdhani Logo' className='p-1 border h-8 w-8' />
-            <span className='font-heading pb-1'>{siteConfig.name}</span>
-</div>
+            <div className='flex items-center justify-center gap-2'>
+              <Image
+                src='/logo.svg'
+                width={16}
+                height={16}
+                alt='Danni Ramdhani Logo'
+                className='h-8 w-8 border bg-foreground p-1 dark:bg-background'
+              />
+              <span className='pb-1 font-heading text-lg'>{siteConfig.name}</span>
+            </div>
           </Link>
-          <nav className='hidden items-center md:flex gap-2'>
+          <nav className='hidden items-center gap-2 md:flex'>
             {items?.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
                 className={cn(
-                  'hover:text-background rounded-sm transform ease-in-out duration-150 px-2 py-1 hover:bg-foreground sm:text-sm',
+                  'transform rounded-full px-2 py-1 duration-300 ease-in-out hover:bg-foreground hover:text-background sm:text-sm',
                   item.href.startsWith(`/${segment}`)
-                    ? 'px-2 py-1 bg-foreground rounded-sm text-background'
+                    ? 'rounded-full bg-foreground px-2 py-1 text-background'
                     : 'text-foreground'
                 )}
               >

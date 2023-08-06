@@ -1,20 +1,14 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { Github, Link as LinkIcon } from 'lucide-react'
 import { projects } from '@/config/projects'
 import { Badge } from '@/components/ui/badge'
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 
 export function ProjectCard() {
-  const ref = useRef<HTMLDivElement>(null)
-
   return (
     <motion.div
-      ref={ref}
       variants={RevealAnimation}
       initial={'hidden'}
       whileInView={'visible'}

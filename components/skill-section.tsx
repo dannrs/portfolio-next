@@ -1,14 +1,10 @@
-'use client'
-
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 import { skills } from '@/config/skills'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function SkillSection() {
-  const ref = useRef<HTMLDivElement>(null)
   return (
     <section className='flex items-start justify-center'>
       <div className='container md:max-w-5xl'>
@@ -20,7 +16,6 @@ export function SkillSection() {
             const Icon = skill.Icon
             return (
               <motion.div
-                ref={ref}
                 variants={RevealAnimation}
                 initial={'hidden'}
                 whileInView={'visible'}

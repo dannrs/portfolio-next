@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
 
+import * as motion from '@/lib/motion'
+import { RevealAnimation } from '@/lib/motion'
 import { Mdx } from '@/components/mdx-components'
 
 import '@/styles/mdx.css'
@@ -74,7 +76,14 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </div>
         <div className='border-b-gray-2 border-b pb-4'>by {post.authors}</div>
-        <Mdx code={post.body.code} />
+        <motion.div
+          variants={RevealAnimation}
+          initial={'hidden'}
+          whileInView={'visible'}
+          viewport={{ once: true }}
+        >
+          <Mdx code={post.body.code} />
+        </motion.div>
         <div className='mt-12 flex justify-center'>
           <Link href='/blog'>
             <Button variant='ghost'>

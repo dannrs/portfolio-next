@@ -1,24 +1,20 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null)
   return (
     <section className='flex h-screen items-center justify-center'>
       <motion.div
-          ref={ref}
-          variants={RevealAnimation}
-          initial={'hidden'}
-          whileInView={'visible'}
-          viewport={{ once: true }}
-      className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'>
+        variants={RevealAnimation}
+        initial={'hidden'}
+        whileInView={'visible'}
+        viewport={{ once: true }}
+        className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'
+      >
         <div className='flex w-3/4 justify-center md:w-1/2 md:justify-end'>
           <Image
             src='/images/hero.svg'

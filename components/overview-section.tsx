@@ -1,17 +1,12 @@
-'use client'
-
 import Link from 'next/link'
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 
 export default function OverviewSection() {
-  const ref = useRef<HTMLDivElement>(null)
   return (
     <>
       <h2 className='font-heading text-3xl md:text-4xl'>Overview</h2>
       <motion.div
-        ref={ref}
         variants={RevealAnimation}
         initial={'hidden'}
         whileInView={'visible'}

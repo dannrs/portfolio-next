@@ -4,30 +4,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
-import { useRef } from 'react'
-import { motion } from 'framer-motion'
-import { RevealAnimation } from '@/lib/motion'
 import { compareDesc } from 'date-fns'
+import * as motion from '@/lib/motion'
+import { RevealAnimation } from '@/lib/motion'
 import { formatDate } from '@/lib/utils'
 
 export default function BlogCard() {
-  const ref = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   let posts = allPosts
     .filter(post => post.published)
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
-  console.log(pathname)
-    
-    if (pathname === '/') {
-      posts = posts.slice(0, 3)
-    }
+  if (pathname === '/') {
+    posts = posts.slice(0, 3)
+  }
 
   return (
     <>
       {posts?.length ? (
         <motion.div
-          ref={ref}
           variants={RevealAnimation}
           initial={'hidden'}
           whileInView={'visible'}
