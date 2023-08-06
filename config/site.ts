@@ -2,7 +2,7 @@ import { SiteConfig } from '@/types'
 
 export const siteConfig: SiteConfig = {
   name: 'Danni Ramdhani',
-  description: 'An enthusiastic web developer from Sumedang, Indonesia',
+  description: 'Passionate web developer who loves creating intuitive web experiences.',
   url: 'https://danni.my.id',
   links: [
     {
