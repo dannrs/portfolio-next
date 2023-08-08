@@ -38,6 +38,9 @@ dependencies:
   '@react-email/html':
     specifier: 0.0.4
     version: 0.0.4
+  '@spotify/web-api-ts-sdk':
+    specifier: ^1.1.0
+    version: 1.1.0
   '@typescript-eslint/parser':
     specifier: ^5.61.0
     version: 5.61.0(eslint@8.44.0)(typescript@5.1.6)
@@ -401,6 +404,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -2233,6 +2237,10 @@ packages:
     dependencies:
       domhandler: 5.0.3
       selderee: 0.10.0
+    dev: false
+
+  /@spotify/web-api-ts-sdk@1.1.0:
+    resolution: {integrity: sha512-SDMduy1YOc86boPQQbjiTJVHhVDUOFTBKMovmBizEbURGVae1Cvswyd/gzSQQwE1FUDXTD4Y8nhn9XHDGvRENA==}
     dev: false
 
   /@swc/helpers@0.5.1:

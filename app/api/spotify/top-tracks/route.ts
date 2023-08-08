@@ -1,7 +1,7 @@
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 import { getTopTracks } from '@/lib/spotify'
-import { ITracksAPIResponse } from '@/types'
+import { Track } from '@spotify/web-api-ts-sdk'
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get('path') || '/'
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
   const song = await response.json()
 
-  const tracks = song.items.map((track: ITracksAPIResponse) => ({
+  const tracks = song.items.map((track: Track) => ({
     id: track.id,
     title: track.name,
     artist: track.artists.map(artist => artist.name).join(', '),

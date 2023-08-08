@@ -27,7 +27,7 @@ const getAccessToken = async (): Promise<SpotifyAccessToken> => {
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: refresh_token!
+      refresh_token: refresh_token as string
     })
   })
 
