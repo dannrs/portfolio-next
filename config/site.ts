@@ -1,8 +1,9 @@
-import { SiteConfig } from '@/types'
+import { SiteConfig } from '@/lib/types'
 
 export const siteConfig: SiteConfig = {
   name: 'Danni Ramdhani',
-  description: 'Passionate web developer who loves creating intuitive web experiences.',
+  description:
+    'Passionate web developer who loves creating intuitive web experiences.',
   url: 'https://danni.my.id',
   links: [
     {

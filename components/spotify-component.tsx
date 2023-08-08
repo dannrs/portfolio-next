@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Song } from '@/types'
+import { Song } from '@/lib/types'
 import { SiSpotify } from 'react-icons/si'
 import {
   Tooltip,
@@ -47,8 +47,10 @@ export function SpotifyComponent({ song }: { song: Song }) {
             </TooltipTrigger>
             <TooltipContent>
               {song.isPlaying ? (
-              <p>Currently playing</p>
-              ) : <p>Recently played</p>}
+                <p>Currently playing</p>
+              ) : (
+                <p>Recently played</p>
+              )}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

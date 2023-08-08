@@ -1,4 +1,4 @@
-import { SkillItem } from '@/types'
+import { SkillItem } from '@/lib/types'
 import {
   SiHtml5,
   SiCss3,
@@ -44,4 +44,3 @@ export const skills: SkillItem[] = [
     Icon: SiGit
   }
 ]
-

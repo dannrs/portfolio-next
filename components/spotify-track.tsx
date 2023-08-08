@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SpotifyTrack } from '@/types'
+import { SpotifyTrack } from '@/lib/types'
 import { cn } from '@/lib/utils'
 
 export function Track({ title, artist, url, trackImageUrl }: SpotifyTrack) {
@@ -9,7 +9,7 @@ export function Track({ title, artist, url, trackImageUrl }: SpotifyTrack) {
       href={url}
       target='_blank'
       rel='noreferrer'
-      className='flex gap-2 border-x border-b px-2 py-2 first:border-t hover:bg-accent/30 transform ease-in duration-150'
+      className='flex transform gap-2 border-x border-b px-2 py-2 duration-150 ease-in first:border-t hover:bg-accent/30'
     >
       <div>
         <Image src={trackImageUrl} width={64} height={64} alt={title} />

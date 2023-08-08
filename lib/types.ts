@@ -1,3 +1,5 @@
+import { IconType } from "react-icons"
+
 export type NavigationItem = {
   title: string
   href: string
@@ -56,34 +58,4 @@ export type SpotifyArtist = {
   genres: string[]
 }
 
-export interface ITracksAPIResponse {
-  album: ISpotifyAlbum
-  artists: ISpotifyAlbum[]
-  available_markets: string[]
-  disc_number: number
-  duration_ms: number
-  explicit: boolean
-  external_urls: IExternalUrls
-  href: string
-  id: string
-  is_local: boolean
-  name: string
-  popularity: number
-  preview_url?: string
-  track_number: number
-  type: string
-  uri: string
-}
 
-export interface IArtistsAPIResponse {
-  external_urls: IExternalUrls
-  followers: IFollowers
-  genres?: string[] | null
-  href: string
-  id: string
-  images?: IImagesEntity[] | null
-  name: string
-  popularity: number
-  type: string
-  uri: string
-}

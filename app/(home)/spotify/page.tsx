@@ -2,7 +2,7 @@
 
 import useSWR from 'swr'
 import { fetcher } from '@/lib/utils'
-import { SpotifyArtist, SpotifyTrack } from '@/types'
+import { SpotifyArtist, SpotifyTrack } from '@/lib/types'
 import { Track } from '@/components/spotify-track'
 import { Loader2 } from 'lucide-react'
 import { Artist } from '@/components/spotify-artist'

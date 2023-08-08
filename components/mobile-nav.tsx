@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 
-import { NavigationItem } from '@/types'
+import { NavigationItem } from '@/lib/types'
 import { ModeToggle } from '@/components/mode-toggle'
 import { cn } from '@/lib/utils'
 
@@ -10,11 +10,11 @@ interface MobileNavigationProps {
   children?: React.ReactNode
 }
 
-export function MobileNavigation({ items, children}: MobileNavigationProps) {
+export function MobileNavigation({ items, children }: MobileNavigationProps) {
   return (
     <header
       className={cn(
-        'fixed right-0 w-full top-0 pt-12 grid border-b border-b-muted bg-blur backdrop-blur-xl backdrop-filter animate-in slide-in-from-bottom-80 md:hidden'
+        'fixed right-0 top-0 grid w-full border-b border-b-muted bg-blur pt-12 backdrop-blur-xl backdrop-filter animate-in slide-in-from-bottom-80 md:hidden'
       )}
     >
       <div className='relative grid p-0 shadow-md'>
@@ -30,7 +30,7 @@ export function MobileNavigation({ items, children}: MobileNavigationProps) {
               {item.title}
             </Link>
           ))}
-          <div className='flex items-center justify-center pt-1 py-4'>
+          <div className='flex items-center justify-center py-4 pt-1'>
             <ModeToggle />
           </div>
         </nav>

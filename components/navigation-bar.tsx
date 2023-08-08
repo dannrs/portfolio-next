@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { NavigationItem } from '@/types'
+import { NavigationItem } from '@/lib/types'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Menu, X } from 'lucide-react'
 import { MobileNavigation } from './mobile-nav'
@@ -54,7 +54,9 @@ export function NavigationBar({ items, children }: NavigationProps) {
                 alt='Danni Ramdhani Logo'
                 className='h-8 w-8 border bg-foreground p-1 dark:bg-background'
               />
-              <span className='pb-1 font-heading text-lg'>{siteConfig.name}</span>
+              <span className='pb-1 font-heading text-lg'>
+                {siteConfig.name}
+              </span>
             </div>
           </Link>
           <nav className='hidden items-center gap-2 md:flex'>

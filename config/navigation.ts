@@ -1,4 +1,4 @@
-import { NavigationRoutes } from '@/types'
+import { NavigationRoutes } from '@/lib/types'
 
 export const navigationRoutes: NavigationRoutes = {
   navItem: [
@@ -17,7 +17,6 @@ export const navigationRoutes: NavigationRoutes = {
     {
       title: 'Contact',
       href: '/contact'
-    },
+    }
   ]
 }
-
