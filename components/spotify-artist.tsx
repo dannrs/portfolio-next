@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { SpotifyArtist } from '@/lib/types'
+import { formatNumber } from '@/lib/utils'
 
-export function Artist({ name, url, artistImageUrl, genres }: SpotifyArtist) {
+export function Artist({ name, url, artistImageUrl, followers}: SpotifyArtist) {
   return (
     <Link
       href={url}
@@ -15,7 +16,7 @@ export function Artist({ name, url, artistImageUrl, genres }: SpotifyArtist) {
       </div>
       <div className='flex flex-col items-start justify-center'>
         <div className='font-semibold'>{name}</div>
-        <div>{genres}</div>
+        <div className='text-sm text-foreground-80'>Followers: {formatNumber(followers)}</div>
       </div>
     </Link>
   )

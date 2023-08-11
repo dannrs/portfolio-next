@@ -55,7 +55,7 @@ export type SpotifyArtist = {
   name: string
   url: string
   artistImageUrl: string
-  genres: string[]
+  followers: number 
 }
 
 

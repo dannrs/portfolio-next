@@ -29,11 +29,8 @@ export function Track({ title, artist, url, trackImageUrl }: SpotifyTrack) {
         </div>
         <div
           className={cn(
-            artist.length > 35
-              ? 'text-xs'
-              : artist.length > 25
-              ? 'text-sm'
-              : 'text-base'
+            'text-foreground-80',
+            artist.length > 35 ? 'text-xs' : 'text-sm'
           )}
         >
           {artist}

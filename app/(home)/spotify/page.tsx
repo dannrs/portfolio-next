@@ -22,23 +22,21 @@ export default function TopTracks() {
         <p className='mb-4 text-foreground/80'>
           My favorite tracks of the last 4 weeks
         </p>
-        <div>
-          {topTracks ? (
-            topTracks?.tracks.map((track: SpotifyTrack, index: number) => (
-              <Track
-                key={index}
-                url={track.url}
-                title={track.title}
-                trackImageUrl={track.trackImageUrl}
-                artist={track.artist}
-              />
-            ))
-          ) : (
-            <div className='flex h-screen items-center justify-center'>
-              <Loader2 className='z-50 h-10 w-10 animate-spin' />
-            </div>
-          )}
-        </div>
+        {topTracks ? (
+          topTracks?.map((track: SpotifyTrack, index: number) => (
+            <Track
+              key={index}
+              url={track.url}
+              title={track.title}
+              trackImageUrl={track.trackImageUrl}
+              artist={track.artist}
+            />
+          ))
+        ) : (
+          <div className='flex h-screen items-center justify-center'>
+            <Loader2 className='z-50 h-10 w-10 animate-spin' />
+          </div>
+        )}
       </div>
       <div>
         <h1 className='pb-2 text-2xl font-bold md:text-3xl'>Top Artists</h1>
@@ -46,13 +44,13 @@ export default function TopTracks() {
           My favorite artists of the last 4 weeks
         </p>
         {topArtists ? (
-          topArtists?.artists.map((artist: SpotifyArtist, index: number) => (
+          topArtists?.map((artist: SpotifyArtist, index: number) => (
             <Artist
               key={index}
               url={artist.url}
               name={artist.name}
               artistImageUrl={artist.artistImageUrl}
-              genres={artist.genres}
+              followers={artist.followers}
             />
           ))
         ) : (

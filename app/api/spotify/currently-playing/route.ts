@@ -1,36 +1,36 @@
-import { getCurrentlyPlaying } from '@/lib/spotify'
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
+import { Artist } from '@spotify/web-api-ts-sdk'
+import { getSpotifyApi } from '@/lib/spotify'
 
 export async function GET(request: NextRequest) {
   const path = request.nextUrl.searchParams.get('path') || '/'
   revalidatePath(path)
-  const response = await getCurrentlyPlaying()
 
-  if (response.status === 204 || response.status > 400) {
+  const spotify = await getSpotifyApi()
+
+  const song = await spotify.player.getCurrentlyPlayingTrack()
+
+  if (song === null) {
     return NextResponse.json({ isPlaying: false })
   }
-
-  const song = await response.json()
-
-  if (song.item === null) {
-    return NextResponse.json({ isPlaying: false })
-  }
-
+  
   const isPlaying = song.is_playing
-  const title = song.item.name
-  const artist = song.item.artists.map((artist: any) => artist.name).join(', ')
-  const album = song.item.album.name
-  const albumImageUrl = song.item.album.images[0].url
-  const songUrl = song.item.external_urls.spotify
+  const { item: track } = song
+  const title = track.name
+  const artist = track.artists.map((artist: Artist) => artist.name).join(', ')
+  const albumImageUrl = track.album.images[0].url
+  const songUrl = track.external_urls.spotify
+
+  if (isPlaying === false) {
+    return NextResponse.json({isPlaying})
+  }
 
   return NextResponse.json({
-    revalidated: true,
-    album,
-    albumImageUrl,
-    artist,
     isPlaying,
-    songUrl,
-    title
+    title,
+    artist,
+    albumImageUrl,
+    songUrl
   })
 }
