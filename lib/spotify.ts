@@ -1,8 +1,8 @@
 import { AccessToken, SpotifyApi } from "@spotify/web-api-ts-sdk"
 
-const client_id = process.env.SPOTIFY_CLIENT_ID
-const client_secret = process.env.SPOTIFY_CLIENT_SECRET
-const refresh_token = process.env.SPOTIFY_CLIENT_REFRESH_TOKEN as string
+const client_id = process.env.SPOTIFY_CLIENT_ID as string
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string
+const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN as string
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
@@ -24,7 +24,6 @@ export const getAccessToken = async (): Promise<AccessToken> => {
 }
 
 export async function getSpotifyApi() {
-  const client_id = process.env.SPOTIFY_CLIENT_ID as string
   const access_token = await getAccessToken()
   return SpotifyApi.withAccessToken(client_id, access_token)
 }
