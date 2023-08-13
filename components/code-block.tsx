@@ -5,12 +5,14 @@ import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 
 interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
+  type: 'text' | 'code'
   children: React.ReactNode
 }
 
 export function CodeBlock({
   className,
   children,
+  type,
   ...props
 }: CodeBlockProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false)
@@ -57,7 +59,8 @@ export function CodeBlock({
       <pre
         ref={textRef}
         className={cn(
-          'grid overflow-x-hidden whitespace-pre-wrap rounded-b-sm py-4 pl-4 no-underline dark:border-muted',
+          'grid rounded-b-sm py-4 pl-4 no-underline dark:border-muted',
+          type == 'text' ? 'overflow-x-hidden whitespace-pre-wrap' : 'overflow-x-scroll',
           className
         )}
         {...props}
