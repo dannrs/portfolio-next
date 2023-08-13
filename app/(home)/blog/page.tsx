@@ -18,18 +18,17 @@ export default async function BlogPage() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <div className='container pt-16 md:max-w-5xl space-y-4'>
+      <div className='container space-y-4 pt-16 md:max-w-5xl'>
         <div className='md:space-y-4'>
           <h1 className='font-heading text-3xl tracking-tight md:text-4xl'>
             Blog
           </h1>
-          <p className='text-lg text-foreground-80 md:text-xl'>
-            I write about various topics that interest me, especially exploring
-            the latest trends and advancements in web development and the
-            intricacies of Linux operating systems.
+          <p className='text-lg text-foreground-80'>
+            I mostly share what I have learned and experienced on my journey as
+            a developer.
           </p>
         </div>
-      <BlogCard />
+        <BlogCard />
       </div>
     </div>
   )

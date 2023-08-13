@@ -7,7 +7,7 @@ export default function Projects() {
         <h1 className='font-heading text-3xl tracking-tight md:text-4xl'>
           My Projects
         </h1>
-        <p className='text-lg text-foreground-80 md:text-xl'>
+        <p className='text-foreground-80 text-lg'>
           The projects I created focused on web applications built with React
           and its frameworks, especially Next.js.
         </p>

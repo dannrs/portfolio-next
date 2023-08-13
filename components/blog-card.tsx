@@ -41,30 +41,15 @@ export default function BlogCard() {
                 {post.description && (
                   <p className='text-foreground-80'>{post.description}</p>
                 )}
-                {post.authors && post.date && (
-                  <p className='text-sm'>
-                    <span className='text-foreground-80'>by</span>
-                    <span className='font-semibold'>
-                      &nbsp;{post.authors}&nbsp;
-                    </span>
-                    <span className='text-sm text-foreground-80'>
-                      on {formatDate(post.date)}
-                    </span>
-                  </p>
+                {post.date && (
+                  <time
+                    dateTime={post.date}
+                    className='block text-sm text-foreground-80'
+                  >
+                    {formatDate(post.date)}
+                  </time>
                 )}
               </div>
-              {post.image && (
-                <div className='flex w-1/4 items-center justify-end'>
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={200}
-                    height={110}
-                    className='rounded-md border bg-background dark:bg-foreground'
-                    priority={index <= 1}
-                  />
-                </div>
-              )}
               <Link href={post.slug} className='absolute inset-0'>
                 <span className='sr-only'>View post</span>
               </Link>

@@ -65,9 +65,9 @@ export function NavigationBar({ items, children }: NavigationProps) {
                 key={index}
                 href={item.href}
                 className={cn(
-                  'transform rounded-full px-2 py-1 duration-300 ease-in-out hover:bg-foreground hover:text-background sm:text-sm',
+                  'transform rounded-full px-2 py-1 duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-[6px] sm:text-sm',
                   item.href.startsWith(`/${segment}`)
-                    ? 'rounded-full bg-foreground px-2 py-1 text-background'
+                    ? 'rounded-full underline underline-offset-[6px] decoration-2 px-2 py-1'
                     : 'text-foreground'
                 )}
               >
