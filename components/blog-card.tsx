@@ -32,9 +32,9 @@ export default function BlogCard() {
           {posts.map((post, index) => (
             <article
               key={post._id}
-              className='relative flex transform flex-row justify-between rounded-sm bg-accent p-4 duration-150 ease-in hover:bg-accent/80'
+              className='relative flex transform rounded-sm bg-accent p-4 duration-150 ease-in hover:bg-accent/80'
             >
-              <div className='flex w-3/4 flex-col gap-2 pr-4'>
+              <div className='flex flex-col gap-2 pr-4'>
                 <h2 className='font-heading text-xl font-extrabold md:text-2xl'>
                   {post.title}
                 </h2>

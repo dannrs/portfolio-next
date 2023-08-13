@@ -20,12 +20,12 @@ export function ProjectCard() {
         return (
           <div
             key={index}
-            className='flex flex-row-reverse rounded-sm bg-accent md:flex-col md:rounded-b-sm'
+            className='flex rounded-sm bg-accent flex-col'
           >
-            <div className='flex w-3/4 flex-col p-4 md:h-52 md:w-full md:justify-between'>
+            <div className='flex flex-col p-4 md:h-52 w-full space-y-2'>
               <p className='font-heading text-lg font-bold'>{project.name}</p>
               <p className='text-foreground-80'>{project.description}</p>
-              <div className='flex gap-2 py-2'>
+              <div className='flex gap-2'>
                 <Button
                   variant='ghost'
                   className='transform border duration-150 ease-in hover:bg-foreground hover:text-background'

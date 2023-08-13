@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
   return (
-    <section className='flex h-screen items-center justify-center'>
+    <section className='flex h-[calc(100dvh)] items-center justify-center'>
       <motion.div
         variants={RevealAnimation}
         initial={'hidden'}
