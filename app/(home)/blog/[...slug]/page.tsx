@@ -65,17 +65,16 @@ export default async function PostPage({ params }: PostPageProps) {
         <h1 className='mt-16 inline-block font-heading text-3xl leading-tight md:text-4xl'>
           {post.title}
         </h1>
-        <div className='my-2'>
+        <div className='my-4'>
           {post.date && (
             <time
               dateTime={post.date}
-              className='block text-sm text-foreground-80'
+              className='block text-sm border-b text-foreground-80 pb-4'
             >
               Published on {formatDate(post.date)}
             </time>
           )}
         </div>
-        <div className='border-b-gray-2 border-b pb-4'>by {post.authors}</div>
         <motion.div
           variants={RevealAnimation}
           initial={'hidden'}

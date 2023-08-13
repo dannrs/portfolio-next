@@ -2,7 +2,6 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
 
 /** @type {import('contentlayer/source-files').ComputeFields} */
 
@@ -36,14 +35,6 @@ export const Post = defineDocumentType(() => ({
     published: {
       type: 'boolean',
       default: true
-    },
-    image: {
-      type: 'string',
-      required: true
-    },
-    authors: {
-      type: 'string',
-      required: true
     }
   },
   computedFields
@@ -69,7 +60,6 @@ export default makeSource({
   contentDirPath: './content',
   documentTypes: [Post, Page],
   mdx: {
-    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [

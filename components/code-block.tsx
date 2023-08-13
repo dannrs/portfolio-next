@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Check, Copy } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 
@@ -11,11 +10,11 @@ interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
 
 export function CodeBlock({
   className,
-  title,
   children,
   ...props
 }: CodeBlockProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false)
+  const [showButton, setShowButton] = useState(false)
   const textRef = useRef<HTMLPreElement>(null)
 
   const handleCopy = () => {
@@ -35,26 +34,30 @@ export function CodeBlock({
   }
 
   return (
-    <div className='flex flex-col mt-6 bg-muted dark:bg-accent'>
-      <div className='flex items-center gap-2 border-t border-x border-x-gray-300 dark:border-x-muted border-t-gray-300 py-1 pl-4 pr-2 font-sans text-sm font-medium dark:border-t-muted md:justify-between md:gap-0 rounded-t-sm'>
-        {title}
+    <div
+      className='relative mt-6 flex flex-col rounded-sm border bg-muted dark:bg-accent'
+      onMouseEnter={() => setShowButton(true)}
+      onMouseLeave={() => setShowButton(false)}
+    >
+      {showButton && (
         <Button
           variant='ghost'
           size='icon-md'
+          className='absolute right-[0.85rem] top-1'
           onClick={handleCopy}
           disabled={isCopied}
         >
           {isCopied ? (
-            <Check className='h-4 w-4' aria-label='Copied' />
+            'Copied!'
           ) : (
-            <Copy className='h-4 w-4 text-foreground' aria-label='Copy code' />
+            <p className='rounded-sm border px-2 py-1'>Copy</p>
           )}
         </Button>
-      </div>
+      )}
       <pre
         ref={textRef}
         className={cn(
-          'grid overflow-x-scroll rounded-b-sm border border-gray-300 dark:border-muted py-4',
+          'grid overflow-x-hidden whitespace-pre-wrap rounded-b-sm py-4 pl-4 no-underline dark:border-muted',
           className
         )}
         {...props}
