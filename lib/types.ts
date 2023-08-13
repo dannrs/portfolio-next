@@ -23,11 +23,9 @@ export type SiteConfig = {
 
 export type ProjectType = {
   name: string
-  coverImage: string
   description: string
   githubUrl: string
   previewUrl?: string
-  tools?: string[]
 }
 
 export type SkillItem = {
