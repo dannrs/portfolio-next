@@ -2,11 +2,11 @@
 This is a personal portfolio site built with Next.js, TypeScript, Tailwind CSS and various other libraries to showcase my projects and skills.
 
 ## Features
-- Next.js 13** with `app` directory
+- **Next.js 13** with `app` directory
 - **Tailwind CSS** for component styling
-- shadcn/ui** for UI library
-- **Contentlayer** for managing content in `.mdx` files
-- **react-email and resend** for the contact form
+- **shadcn/ui** for UI library
+- **Contentlayer** for managing content in `.mdx`
+- **react-email** and **resend** for the contact form
 - **Zod** for form validation
 - **SWR** for fetching data
 
