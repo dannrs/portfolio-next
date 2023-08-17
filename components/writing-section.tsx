@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { Button } from './ui/button'
-import BlogCard from './blog-card'
+import { Button } from '@/components/ui/button'
+import BlogCard from '@/components/blog-card'
+import { MoveRight } from 'lucide-react'
 
 export async function WritingSection() {
   return (
@@ -10,7 +11,8 @@ export async function WritingSection() {
         <BlogCard />
         <Link href='/blog'>
           <Button variant='ghost' className='mt-4 text-base font-semibold'>
-            Read all posts &#129042;
+            Read all posts&nbsp;
+            <MoveRight className='h-4 w-4' />
           </Button>
         </Link>
       </div>

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ProjectCard } from '@/components/project-card'
-import OverviewSection from './overview-section'
+import OverviewSection from '@/components/overview-section'
+import { MoveRight } from 'lucide-react'
 
 export function ProjectSection() {
   return (
@@ -14,7 +15,8 @@ export function ProjectSection() {
         <ProjectCard />
         <Link href='/projects'>
           <Button variant='ghost' className='mt-4 text-base font-semibold'>
-            See all projects &#129042;
+            See all projects&nbsp;
+            <MoveRight className='h-4 w-4' />
           </Button>
         </Link>
       </div>

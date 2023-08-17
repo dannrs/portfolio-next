@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
+import { MoveRight } from 'lucide-react'
 
 export default function OverviewSection() {
   return (
@@ -20,7 +21,10 @@ export default function OverviewSection() {
           technologies.&nbsp;
           <Link href='/about' className=''>
             <span className='font-semibold text-foreground'>
-              Read more &#129042;
+              Read more&nbsp;
+              <span>
+                <MoveRight className='h-4 w-4 inline' />
+              </span>
             </span>
           </Link>
         </p>
