@@ -3,15 +3,19 @@
 import useSWR from 'swr'
 import { fetcher } from '@/lib/utils'
 import { SpotifyComponent } from '@/components/spotify-component'
-import Link from 'next/link'
-import { Skeleton } from './ui/skeleton'
+import { Skeleton } from '@/components/ui/skeleton'
 import { navigationRoutes } from '@/config/navigation'
 import { siteConfig } from '@/config/site'
+import UnderlinedLink from '@/components/underlined-link'
 
 export function Footer() {
-  const { data: currentSong } = useSWR('/api/spotify/currently-playing', fetcher, {
-    refreshInterval: 60000
-  })
+  const { data: currentSong } = useSWR(
+    '/api/spotify/currently-playing',
+    fetcher,
+    {
+      refreshInterval: 60000
+    }
+  )
   const { data: recentlyPlayed } = useSWR(
     '/api/spotify/recently-played',
     fetcher,
@@ -26,18 +30,24 @@ export function Footer() {
             <div className='grid w-full grid-cols-2'>
               <div className='flex flex-col items-start gap-4'>
                 {navigationRoutes.navItem.map((item, index) => (
-                  <Link key={index} href={item.href}>
+                  <UnderlinedLink
+                    key={index}
+                    href={item.href}
+                  >
                     {item.title}
-                  </Link>
+                  </UnderlinedLink>
                 ))}
               </div>
               <div className='flex flex-col gap-4'>
                 {siteConfig.links.map((item, index) => (
-                  <Link key={index} href={item.href}>
+                  <UnderlinedLink
+                    key={index}
+                    href={item.href}
+                  >
                     {item.name}
-                  </Link>
+                  </UnderlinedLink>
                 ))}
-                <Link href='/spotify'>Spotify</Link>
+                <UnderlinedLink href='/spotify'>Spotify</UnderlinedLink>
               </div>
             </div>
             <div className='flex w-full items-start justify-center md:justify-end'>
@@ -54,33 +64,30 @@ export function Footer() {
           </div>
           <p className='pt-8 text-center'>
             Created by{' '}
-            <Link
+            <UnderlinedLink
               href='https://github.com/dannrs'
-              className='font-semibold underline-offset-4 hover:underline'
+              className='font-semibold'
             >
-              danniramdhani
-            </Link>
+              dannrs
+            </UnderlinedLink>
             . Powered by{' '}
-            <Link
-              href='https://nextjs.org'
-              className='font-semibold underline-offset-4 hover:underline'
-            >
+            <UnderlinedLink href='https://nextjs.org' className='font-semibold'>
               Next.js
-            </Link>{' '}
+            </UnderlinedLink>{' '}
             and{' '}
-            <Link
+            <UnderlinedLink
               href='https://vercel.com/'
-              className='font-semibold underline-offset-4 hover:underline'
+              className='font-semibold'
             >
               Vercel
-            </Link>
+            </UnderlinedLink>
             . Hero illustration by{' '}
-            <Link
+            <UnderlinedLink
               href='https://www.freepik.com/free-vector/code-typing-concept-illustration_10259340.htm#query=code%20typing&position=0&from_view=keyword&track=ais'
-              className='font-semibold underline-offset-4 hover:underline'
+              className='font-semibold'
             >
               storyset
-            </Link>{' '}
+            </UnderlinedLink>{' '}
             on Freepik.
           </p>
         </div>

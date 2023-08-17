@@ -24,6 +24,9 @@ module.exports = {
       maxWidth: {
         '5xl': '60rem'
       },
+      textUnderlineOffset: {
+        6: '6px'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
