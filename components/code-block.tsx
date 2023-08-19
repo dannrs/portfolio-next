@@ -16,7 +16,6 @@ export function CodeBlock({
   ...props
 }: CodeBlockProps) {
   const [isCopied, setIsCopied] = useState<boolean>(false)
-  const [showButton, setShowButton] = useState(false)
   const textRef = useRef<HTMLPreElement>(null)
 
   const handleCopy = () => {
@@ -36,31 +35,23 @@ export function CodeBlock({
   }
 
   return (
-    <div
-      className='relative mt-6 flex flex-col rounded-sm border bg-muted dark:bg-accent'
-      onMouseEnter={() => setShowButton(true)}
-      onMouseLeave={() => setShowButton(false)}
-    >
-      {showButton && (
-        <Button
-          variant='ghost'
-          size='icon-md'
-          className='absolute right-[0.85rem] top-1'
-          onClick={handleCopy}
-          disabled={isCopied}
-        >
-          {isCopied ? (
-            'Copied!'
-          ) : (
-            <p className='rounded-sm border px-2 py-1'>Copy</p>
-          )}
-        </Button>
-      )}
+    <div className='relative mt-6 rounded-sm border bg-muted dark:bg-accent'>
+      <Button
+        variant='outline'
+        size='sm'
+        className='absolute right-2 top-2 z-10 bg-transparent'
+        onClick={handleCopy}
+        disabled={isCopied}
+      >
+        {isCopied ? 'Copied!' : 'Copy'}
+      </Button>
       <pre
         ref={textRef}
         className={cn(
           'grid rounded-b-sm py-4 pl-4 no-underline dark:border-muted',
-          type == 'text' ? 'overflow-x-hidden whitespace-pre-wrap' : 'overflow-x-scroll',
+          type === 'text'
+            ? 'overflow-x-hidden whitespace-pre-wrap'
+            : 'overflow-x-scroll',
           className
         )}
         {...props}
