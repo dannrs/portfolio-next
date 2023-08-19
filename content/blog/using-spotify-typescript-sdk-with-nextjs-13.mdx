@@ -63,12 +63,13 @@ The above command will return a response in JSON format and should look like thi
 <CodeBlock>
 ```json
 {
-    "access_token": "BQDoG...y6H8g",
-    "token_type": "Bearer",
-    "expires_in": 3600,
-    "refresh_token": "AQBfU...JYKoA",
-    "scope": "user-read-currently-playing user-read-recently-played user-top-read"
+  "access_token": "BQDoG...y6H8g",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "refresh_token": "AQBfU...JYKoA",
+  "scope": "user-read-currently-playing user-read-recently-played user-top-read"
 }
+
 ```
 </CodeBlock>
 
@@ -80,9 +81,9 @@ Store the information you get, especially the `refresh_token`, in your environme
 Create an `.env.local' file in the root directory of your project with these values:
 
 <CodeBlock type='text'>
-  SPOTIFY_CLIENT_ID=
-  SPOTIFY_CLIENT_SECRET=
-  SPOTIFY_REFRESH_TOKEN=
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=
 </CodeBlock>
 
 ### 4. Request Access Token
@@ -91,36 +92,37 @@ Before we can retrieve any information from the API, we need something called an
 
 <CodeBlock>
 ```tsx
-  // lib/spotify.ts
+// lib/spotify.ts
   
-  import { AccessToken } from "@spotify/web-api-ts-sdk";
-  
-  // Load environment variables
-  const client_id = process.env.SPOTIFY_CLIENT_ID as string;
-  const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string;
-  const refresh_token = process.env.SPOTIFY_CLIENT_REFRESH_TOKEN as string;
-  
-  // Create a base64-encoded string using client_id and client_secret
-  const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
-  
-  const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
-  
-  // Function to get a new access token using the refresh token
-  export const getAccessToken = async (): Promise<AccessToken> => {
-    const response = await fetch(TOKEN_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${basic}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        grant_type: "refresh_token",
-        refresh_token: refresh_token,
-      }),
-    });
-  
-    return response.json();
-  };
+import { AccessToken } from "@spotify/web-api-ts-sdk";
+
+// Load environment variables
+const client_id = process.env.SPOTIFY_CLIENT_ID as string;
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string;
+const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN as string;
+
+// Create a base64-encoded string using client_id and client_secret
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
+
+const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
+
+// Function to get a new access token using the refresh token
+export const getAccessToken = async (): Promise<AccessToken> => {
+  const response = await fetch(TOKEN_ENDPOINT, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${basic}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refresh_token,
+    }),
+  });
+
+  return response.json();
+};
+
 ```
 </CodeBlock>
 
@@ -130,53 +132,54 @@ Route Handlers are equivalent to API Routes in Next.js with a `pages' directory.
 
 <CodeBlock>
 ```tsx
-  // app/api/currently-playing/route.ts
+// app/api/currently-playing/route.ts
   
-  import { revalidatePath } from "next/cache";
-  import { NextRequest, NextResponse } from "next/server";
-  import { SimplifiedArtist, SpotifyApi, Track } from "@spotify/web-api-ts-sdk";
-  import { getAccessToken } from "@/lib/spotify";
-  
-  export async function GET(request: NextRequest) {
-    // Update cached data associated with the specified path using revalidatePath
-    const path = request.nextUrl.searchParams.get("path") || "/";
-    revalidatePath(path);
-  
-    const client_id = process.env.SPOTIFY_CLIENT_ID as string;
-    const access_token = await getAccessToken();
-  
-    // Creating an instance of the SDK using withAccessToken method
-    const spotify = SpotifyApi.withAccessToken(client_id, access_token);
-  
-    // Accessing getCurrentlyPlaying endpoint
-    const song = await spotify.player.getCurrentlyPlayingTrack();
-  
-    if (song === null) {
-      return NextResponse.json({ isPlaying: false });
-    }
-  
-    // Getting the data
-    const isPlaying = song.is_playing;
-    const track = song.item as Track;
-    const title = track.name;
-    const artist = track.artists
-      .map((artist: SimplifiedArtist) => artist.name)
-      .join(", ");
-    const albumImageUrl = track.album.images[0].url;
-    const songUrl = track.external_urls.spotify;
-  
-    if (isPlaying === false) {
-      return NextResponse.json({ isPlaying });
-    }
-  
-    return NextResponse.json({
-      isPlaying,
-      title,
-      artist,
-      albumImageUrl,
-      songUrl,
-    });
+import { revalidatePath } from "next/cache";
+import { NextRequest, NextResponse } from "next/server";
+import { SimplifiedArtist, SpotifyApi, Track } from "@spotify/web-api-ts-sdk";
+import { getAccessToken } from "@/lib/spotify";
+
+export async function GET(request: NextRequest) {
+  // Update cached data associated with the specified path using revalidatePath
+  const path = request.nextUrl.searchParams.get("path") || "/";
+  revalidatePath(path);
+
+  const client_id = process.env.SPOTIFY_CLIENT_ID as string;
+  const access_token = await getAccessToken();
+
+  // Creating an instance of the SDK using withAccessToken method
+  const spotify = SpotifyApi.withAccessToken(client_id, access_token);
+
+  // Accessing getCurrentlyPlaying endpoint
+  const song = await spotify.player.getCurrentlyPlayingTrack();
+
+  if (song === null) {
+    return NextResponse.json({ isPlaying: false });
   }
+
+  // Getting the data
+  const isPlaying = song.is_playing;
+  const track = song.item as Track;
+  const title = track.name;
+  const artist = track.artists
+    .map((artist: SimplifiedArtist) => artist.name)
+    .join(", ");
+  const albumImageUrl = track.album.images[0].url;
+  const songUrl = track.external_urls.spotify;
+
+  if (isPlaying === false) {
+    return NextResponse.json({ isPlaying });
+  }
+
+  return NextResponse.json({
+    isPlaying,
+    title,
+    artist,
+    albumImageUrl,
+    songUrl,
+  });
+}
+
 ```
 </CodeBlock>
 
@@ -190,17 +193,17 @@ Once you've retrieved the relevant data from the Spotify API, it's time to integ
 
 "use client";
 
-import Image from 'next/image'
-import useSWR from 'swr'
-import { fetcher } from '@/lib/utils'
-import Link from 'next/link'
+import Image from "next/image";
+import useSWR from "swr";
+import { fetcher } from "@/lib/utils";
+import Link from "next/link";
 
 type Song = {
-title: string;
-artist: string;
-albumImageUrl: string;
-songUrl: string;
-isPlaying: boolean;
+  title: string;
+  artist: string;
+  albumImageUrl: string;
+  songUrl: string;
+  isPlaying: boolean;
 };
 
 export default function Home() {
@@ -212,36 +215,36 @@ export default function Home() {
     }
   );
 
-return (
-
-<main className='flex min-h-screen items-center justify-center bg-slate-900'>
-  {currentSong && currentSong.isPlaying ? (
-    <section className='flex min-w-[15rem] items-center rounded-sm border border-slate-800 p-1'>
-      <div className='flex flex-col items-center'>
-        <Image
-          src={currentSong.albumImageUrl}
-          width={128}
-          height={128}
-          alt={currentSong.title}
-        />
-      </div>
-      <div className='flex w-full flex-col items-start justify-center px-4'>
-        <p className='font-semibold'>{currentSong.title}</p>
-        <p className='text-sm text-white/90'>{currentSong.artist}</p>
-      </div>
-      <Link
-        className='mr-3 rounded-sm border border-slate-700 p-1 text-xs'
-        href={currentSong.songUrl}
-        target='_blank'
-      >
-        Open
-      </Link>
-    </section>
-  ) : (
-    <div>Not playing</div>
-  )}
-</main>
-); }
+  return (
+    <main className="min-h-screen flex items-center bg-slate-900 justify-center">
+      {currentSong && currentSong.isPlaying ? (
+        <section className="flex items-center border border-slate-800 rounded-sm p-1 min-w-[15rem]">
+          <div className="flex flex-col items-center">
+            <Image
+              src={currentSong.albumImageUrl}
+              width={128}
+              height={128}
+              alt={currentSong.title}
+            />
+          </div>
+          <div className="flex flex-col items-start w-full justify-center px-4">
+            <p className="font-semibold">{currentSong.title}</p>
+            <p className="text-sm text-white/90">{currentSong.artist}</p>
+          </div>
+          <Link
+            className="mr-3 border rounded-sm border-slate-700 p-1 text-xs"
+            href={currentSong.songUrl}
+            target="_blank"
+          >
+            Open
+          </Link>
+        </section>
+      ) : (
+        <div>Not playing</div>
+      )}
+    </main>
+  );
+}
 
 ```
 </CodeBlock>
