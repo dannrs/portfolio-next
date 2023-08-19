@@ -16,7 +16,7 @@ export function Artist({ name, url, artistImageUrl, followers}: SpotifyArtist) {
       </div>
       <div className='flex flex-col items-start justify-center'>
         <div className='font-semibold'>{name}</div>
-        <div className='text-sm text-foreground-80'>Followers: {formatNumber(followers)}</div>
+        <div className='text-sm text-foreground-80'>{formatNumber(followers)} Followers</div>
       </div>
     </Link>
   )
