@@ -1,10 +1,9 @@
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import { Inter, Barlow } from 'next/font/google'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Animate } from '@/components/animate'
 
 const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const fontHeading = Barlow({
@@ -43,11 +42,9 @@ export default function RootLayout({
           fontHeading.variable
         )}
       >
-        <Animate>
           <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
             {children}
           </ThemeProvider>
-        </Animate>
       </body>
     </html>
   )
