@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import * as motion from '@/lib/motion'
@@ -6,6 +8,12 @@ import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    const element = document.getElementById('overview')
+    element?.scrollIntoView({behavior: 'smooth'})
+  }
+
   return (
     <section className='flex h-[calc(100dvh)] items-center justify-center'>
       <motion.div
@@ -32,7 +40,7 @@ export function HeroSection() {
           </p>
           <div className='pt-2'>
             <Link href='#overview'>
-              <Button className='mr-4'>Learn more</Button>
+              <Button className='mr-4' onClick={handleClick}>Learn more</Button>
             </Link>
             <Link href='/contact'>
               <Button variant='outline'>Contact</Button>
