@@ -2,5 +2,6 @@ node_modules
 build
 dist
 .prettierrc.json
+.eslintrc.json
 .contentlayer
 content
