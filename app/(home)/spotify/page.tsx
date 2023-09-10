@@ -7,7 +7,7 @@ import { Track } from '@/components/spotify-track'
 import { Loader2 } from 'lucide-react'
 import { Artist } from '@/components/spotify-artist'
 
-export default function TopTracks() {
+export default function Spotify() {
   const { data: topTracks } = useSWR('/api/spotify/top-tracks', fetcher, {
     refreshInterval: 86400000
   })
