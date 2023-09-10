@@ -9,7 +9,7 @@ export function Track({ title, artist, url, trackImageUrl }: SpotifyTrack) {
       href={url}
       target='_blank'
       rel='noreferrer'
-      className='flex transform gap-2 border-x border-b px-2 py-2 duration-150 ease-in first:border-t hover:bg-accent/30'
+      className='flex transform gap-2 border-x border-t px-2 py-2 duration-150 ease-in last:border-b hover:bg-accent/30'
     >
       <div>
         <Image src={trackImageUrl} width={64} height={64} alt={title} />
