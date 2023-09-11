@@ -39,8 +39,8 @@ dependencies:
     specifier: 0.0.4
     version: 0.0.4
   '@spotify/web-api-ts-sdk':
-    specifier: 1.1.0
-    version: 1.1.0
+    specifier: 1.1.2
+    version: 1.1.2
   '@typescript-eslint/parser':
     specifier: 5.61.0
     version: 5.61.0(eslint@8.44.0)(typescript@5.1.6)
@@ -2229,8 +2229,8 @@ packages:
       selderee: 0.10.0
     dev: false
 
-  /@spotify/web-api-ts-sdk@1.1.0:
-    resolution: {integrity: sha512-SDMduy1YOc86boPQQbjiTJVHhVDUOFTBKMovmBizEbURGVae1Cvswyd/gzSQQwE1FUDXTD4Y8nhn9XHDGvRENA==}
+  /@spotify/web-api-ts-sdk@1.1.2:
+    resolution: {integrity: sha512-WxmaKUGZH2xtoVDZuy6PXbrAIiEux9pL1IDaDm6iRI25nT8be6huCNpNtYe0MBtq+rejbJqjg9JI2MVlfEMyUQ==}
     dev: false
 
   /@swc/helpers@0.5.1:
