@@ -46,7 +46,7 @@
     "react-icons": "4.10.1",
     "resend": "0.16.0",
     "shiki": "0.14.4",
-    "swr": "2.2.0",
+    "swr": "2.2.2",
     "tailwind-merge": "1.13.2",
     "tailwindcss-animate": "1.0.6",
     "zod": "3.21.4"
