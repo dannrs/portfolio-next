@@ -5,7 +5,7 @@ import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 import { Mdx } from '@/components/mdx-components'
 
-import '../../styles/mdx.css'
+import '@/styles/mdx.css'
 import { Metadata } from 'next'
 import { formatDate } from '@/lib/utils'
 import Link from 'next/link'

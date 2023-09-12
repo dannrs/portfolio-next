@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { allPages } from 'contentlayer/generated'
 
-import '../../styles/mdx.css'
+import '@/styles/mdx.css'
 import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 import { Mdx } from '@/components/mdx-components'
