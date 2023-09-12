@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
-import { contactFormSchema } from '@/lib/validation'
+import { contactFormSchema } from '@/lib/validations/contact'
 
 export function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({

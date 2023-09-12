@@ -24,15 +24,10 @@ export function formatNumber(count: number) {
   }
 }
 
-export const rgbToHex = (r: number, g: number, b: number): string => {
-  const componentToHex = (c: number): string => {
-    const hex = c.toString(16)
-    return hex.length === 1 ? '0' + hex : hex
-  }
-
-  return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`
-}
-
 export async function fetcher(url: string) {
   return fetch(url).then(r => r.json())
+}
+
+export function absoluteUrl(path: string) {
+  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
 }

@@ -4,6 +4,7 @@ import { Inter, Barlow } from 'next/font/google'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Metadata } from 'next'
 
 const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const fontHeading = Barlow({
@@ -12,20 +13,38 @@ const fontHeading = Barlow({
   variable: '--font-heading'
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`
   },
   description: siteConfig.description,
-  keywords: ['React', 'Next.js', 'Tailwind CSS', 'Linux'],
+  keywords: ['React', 'Next.js', 'Tailwind CSS', 'Web Development'],
   authors: [
     {
       name: 'danniramdhani',
       url: 'https://danni.my.id'
     }
   ],
-  creator: 'danniramdhani'
+  creator: 'danniramdhani',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/og.png`],
+    creator: '@dannrs__'
+  },
+  icons: {
+    icon: '/favicon.ico'
+  }
 }
 
 export default function RootLayout({
