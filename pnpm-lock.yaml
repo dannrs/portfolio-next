@@ -45,7 +45,7 @@ dependencies:
     specifier: 5.62.0
     version: 5.62.0(eslint@8.49.0)(typescript@5.1.6)
   '@vercel/og':
-    specifier: ^0.5.13
+    specifier: 0.5.13
     version: 0.5.13
   class-variance-authority:
     specifier: 0.7.0
