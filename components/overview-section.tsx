@@ -21,7 +21,7 @@ export default function OverviewSection() {
           technologies.&nbsp;
           <Link href='/about' className=''>
             <span className='font-semibold text-foreground'>
-              Read more&nbsp;
+              Read more about me&nbsp;
               <span>
                 <MoveRight className='h-4 w-4 inline' />
               </span>
