@@ -29,6 +29,7 @@ export function HeroSection() {
             alt='hero-image'
             width={480}
             height={480}
+            priority
           />
         </div>
         <div className='flex flex-col items-center justify-center gap-2 md:w-1/2 md:items-start md:justify-start md:gap-4'>
