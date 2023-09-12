@@ -31,7 +31,7 @@
     "@spotify/web-api-ts-sdk": "1.1.2",
     "@typescript-eslint/parser": "5.62.0",
     "@vercel/og": "^0.5.13",
-    "class-variance-authority": "0.6.1",
+    "class-variance-authority": "0.7.0",
     "clsx": "1.2.1",
     "contentlayer": "0.3.4",
     "date-fns": "2.30.0",
