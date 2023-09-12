@@ -67,6 +67,7 @@ export function Footer() {
             <UnderlinedLink
               href='https://github.com/dannrs'
               className='font-semibold'
+              aria-label='Danni Ramdhani&apos;s Github page'
             >
               dannrs
             </UnderlinedLink>

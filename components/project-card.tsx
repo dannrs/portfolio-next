@@ -31,7 +31,7 @@ export function ProjectCard() {
                   className='transform border duration-150 ease-in hover:bg-foreground hover:text-background'
                   size='sm'
                 >
-                  <Link href={project.githubUrl}>
+                  <Link href={project.githubUrl} aria-label='Github repository of the project'>
                     <div className='flex items-center text-sm'>
                       <Github width={16} height={16} className='mr-1' />
                       Github
@@ -44,7 +44,7 @@ export function ProjectCard() {
                     className='transform border duration-150 ease-in hover:bg-foreground hover:text-background'
                     size='sm'
                   >
-                    <Link href={project.previewUrl}>
+                    <Link href={project.previewUrl} aria-label='Preview site of the project'>
                       <div className='flex items-center text-sm'>
                         <LinkIcon width={16} height={16} className='mr-1' />
                         Preview
