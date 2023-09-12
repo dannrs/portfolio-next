@@ -6,6 +6,10 @@ import * as motion from '@/lib/motion'
 import { RevealAnimation } from '@/lib/motion'
 import { Mdx } from '@/components/mdx-components'
 
+export const metadata = {
+  title: 'About'
+}
+
 export default async function AboutPage() {
   const page = allPages.find(page => page.title === 'About me')
 

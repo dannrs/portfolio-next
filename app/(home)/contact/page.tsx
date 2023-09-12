@@ -1,8 +1,10 @@
-'use client'
-
 import { ContactForm } from '@/components/contact/contact-form'
 
-export default function Contact() {
+export const metadata = {
+  title: 'Contact'
+}
+
+export default function ContactPage() {
   return (
     <div className='container pb-8 pt-16 md:max-w-5xl'>
       <div className='space-y-4'>

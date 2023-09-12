@@ -1,8 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
-import { formatDate } from '@/lib/utils'
 import BlogCard from '@/components/blog-card'
 
 export const metadata = {
@@ -10,12 +5,6 @@ export const metadata = {
 }
 
 export default async function BlogPage() {
-  const posts = allPosts
-    .filter(post => post.published)
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date))
-    })
-
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='container space-y-4 pt-16 md:max-w-5xl'>

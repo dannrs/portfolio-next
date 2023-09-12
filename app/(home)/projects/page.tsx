@@ -1,6 +1,10 @@
 import { ProjectCard } from "@/components/project-card";
 
-export default function Projects() {
+export const metadata = {
+  title: 'Projects'
+}
+
+export default function ProjectsPage() {
   return (
     <div className='container pb-8 pt-16 md:max-w-5xl'>
       <div className='space-y-4 pb-4'>
