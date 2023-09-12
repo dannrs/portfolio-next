@@ -14,6 +14,7 @@ const fontHeading = Barlow({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL as string),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`

@@ -27,7 +27,3 @@ export function formatNumber(count: number) {
 export async function fetcher(url: string) {
   return fetch(url).then(r => r.json())
 }
-
-export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
-}

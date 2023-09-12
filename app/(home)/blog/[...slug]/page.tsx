@@ -7,7 +7,7 @@ import { Mdx } from '@/components/mdx-components'
 
 import '@/styles/mdx.css'
 import { Metadata } from 'next'
-import { absoluteUrl, formatDate } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft } from 'lucide-react'
@@ -47,11 +47,14 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    alternates: {
+      canonical: `${post.slug}`
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
-      url: absoluteUrl(post.slug),
+      url: `${post.slug}`,
       images: [
         {
           url: ogUrl.toString(),
