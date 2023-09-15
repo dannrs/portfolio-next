@@ -110,6 +110,22 @@ export default async function PostPage({ params }: PostPageProps) {
           whileInView={'visible'}
           viewport={{ once: true }}
         >
+          <div className='pt-4 pb-6'>
+            <details className='border border-solid p-4 rounded-sm'>
+              <summary className='cursor-pointer'>Table of Contents</summary>
+              <ul className='space-y-2 pt-4'>
+                {post.toc.map((heading: any) => {
+                  return (
+                    <li key={`#${heading.slug}`}>
+                      <Link href={`#${heading.slug}`} data-level={heading.level} className='hover:underline underline-offset-6 decoration-2 data-[level=two]:pl-0 data-[level=three]:pl-4'>
+                        {heading.text}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </details>
+          </div>
           <Mdx code={post.body.code} />
         </motion.div>
         <div className='mt-12 flex justify-center'>

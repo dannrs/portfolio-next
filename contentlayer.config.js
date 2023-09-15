@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import GithubSlugger from 'github-slugger'
 
 /** @type {import('contentlayer/source-files').ComputeFields} */
 
@@ -13,6 +14,27 @@ const computedFields = {
   slugAsParams: {
     type: 'string',
     resolve: doc => doc._raw.flattenedPath.split('/').slice(1).join('/')
+  },
+  toc: {
+    type: 'json',
+    resolve: async doc => {
+      const headingsRegex = /\n(?<flag>#{1,6})\s+(?<content>.+)/g
+      const slugger = new GithubSlugger()
+      const headings = Array.from(doc.body.raw.matchAll(headingsRegex)).map(
+        ({ groups }) => {
+          const flag = groups?.flag
+          const content = groups?.content
+          return {
+            level: flag?.length == 1 ? "one"
+            : flag?.length == 2 ? "two"
+            : "three",
+            text: content,
+            slug: content ? slugger.slug(content) : undefined
+          }
+        }
+      )
+      return headings
+    }
   }
 }
 
@@ -51,7 +73,7 @@ export const Page = defineDocumentType(() => ({
     },
     description: {
       type: 'string'
-    },
+    }
   },
   computedFields
 }))
