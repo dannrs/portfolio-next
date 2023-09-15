@@ -117,7 +117,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 {post.toc.map((heading: any) => {
                   return (
                     <li key={`#${heading.slug}`}>
-                      <Link href={`#${heading.slug}`} data-level={heading.level} className='hover:underline underline-offset-6 decoration-2 data-[level=two]:pl-0 data-[level=three]:pl-4'>
+                      <Link href={`#${heading.slug}`} data-level={heading.level} className='hover:underline underline-offset-6 decoration-2 data-[level=two]:pl-0 data-[level=three]:pl-6'>
                         {heading.text}
                       </Link>
                     </li>
