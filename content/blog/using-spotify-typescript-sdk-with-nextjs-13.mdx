@@ -33,7 +33,7 @@ That's it! Now that your Spotify application is properly configured, we're ready
 ### 2. Authentication
 
 **Authorization Code Flow**  
-Depending on your application, various authentication methods are available. For this tutorial, we'll use the [Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow), which involves obtaining a refresh token that only expires when access is revoked.
+Depending on your application, various authentication methods are available. For this tutorial, we'll use the <Link href='https://developer.spotify.com/documentation/web-api/tutorials/code-flow'>Authorization Code Flow</Link>, which involves obtaining a refresh token that only expires when access is revoked.
 
 **Step 1: Request Authorization**  
 Before you can access Spotify resources, you must request authorization for your application. Copy and paste this link into your browser to begin the process:
@@ -53,7 +53,7 @@ After permission is granted, you'll be redirected to your `redirect_uri` with a 
 <CodeBlock type='text'>http://localhost:3000/?code=AQAol...Da4Si</CodeBlock>
 
 **Step 3: Obtaining the refresh token**  
-You need to create a Base64-encoded string containing your `client_id` and `client_secret` to get your refresh token. Use this [online tool](https://www.base64encode.org/) to encode the string in the format `client_id:client_secret`. Then open your terminal and paste this:
+You need to create a Base64-encoded string containing your `client_id` and `client_secret` to get your refresh token. Use this <Link href='https://www.base64encode.org/'>online tool</Link> to encode the string in the format `client_id:client_secret`. Then open your terminal and paste this:
 
 <CodeBlock type='text'>
 curl -H "Authorization: Basic (base64 encoded client_id:client_secret)" -d grant_type=authorization_code -d code=(code) -d redirect_uri=http://localhost:3000 https://accounts.spotify.com/api/token
@@ -130,7 +130,7 @@ export const getAccessToken = async (): Promise<AccessToken> => {
 
 ### 5. Creating Route Handlers
 
-Route Handlers are equivalent to API Routes in Next.js with a `pages' directory. These handlers play a crucial role in defining how your application interacts with external data sources, such as the Spotify API. They are responsible for making actual data requests and returning the information to your application components. If you are not familiar with this concept, please read [this](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) in the official Next.js documentation.
+Route Handlers are equivalent to API Routes in Next.js with a `pages' directory. These handlers play a crucial role in defining how your application interacts with external data sources, such as the Spotify API. They are responsible for making actual data requests and returning the information to your application components. If you are not familiar with this concept, please read the <Link href='https://nextjs.org/docs/app/building-your-application/routing/route-handlers' target='_blank'>official Next.js documentation</Link>.
 
 <CodeBlock>
 ```tsx
@@ -258,10 +258,10 @@ The fetched song data is then conditionally rendered. If a song is currently pla
 <Image src='/images/blog/final-sample-app.jpg' alt='Final Sample Application' />
 
 ## Conclusion
-In this blog post, we've walked you through the process of using the Spotify TypeScript SDK within Next.js 13. You've learned how to set up authentication, fetch the data, and dynamically display it in your app. You can have a look at the full code of this sample app on my [GitHub](https://github.com/dannrs/spotify-ts-sdk-test).
+In this blog post, we've walked you through the process of using the Spotify TypeScript SDK within Next.js 13. You've learned how to set up authentication, fetch the data, and dynamically display it in your app. You can have a look at the full code of this sample app on my <Link href='https://github.com/dannrs/spotify-ts-sdk-test'>Github</Link>.
 
 ## References
-- [Using the Spotify API with Next.js](https://leerob.io/blog/spotify-api-nextjs)
-- [How to use Spotify API with Next.js](https://dev.to/j471n/how-to-use-spotify-api-with-nextjs-50o5#fetch-the-currently-playing-song)
-- [Spotify Web API Typescript SDK](https://github.com/spotify/spotify-web-api-ts-sdk)
-- [Spotify Web API Documentation](https://developer.spotify.com/documentation/web-api)
+- <Link href='https://leerob.io/blog/spotify-api-nextjs'>Using the Spotify API with Next.js</Link>
+- <Link href='https://dev.to/j471n/how-to-use-spotify-api-with-nextjs-50o5'>How to use Spotify API with Next.js</Link>
+- <Link href='https://github.com/spotify/spotify-web-api-ts-sdk'>Spotify Web API Typescript SDK Github Repository</Link>
+- <Link href='https://developer.spotify.com/documentation/web-api'>Spotify Web API Documentation</Link>

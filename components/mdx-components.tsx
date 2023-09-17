@@ -1,12 +1,11 @@
 'use client'
 
-import * as React from "react"
-import Image from "@/components/image"
 import { useMDXComponent } from "next-contentlayer/hooks"
-
 import { cn } from "@/lib/utils"
 import { Callout } from "@/components/callout"
 import { CodeBlock } from "@/components/code-block"
+import Image from "@/components/image"
+import Link from "@/components/link"
 
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
@@ -65,7 +64,7 @@ const components = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-6 decoration-2", className)}
+      className={cn("font-medium text-white", className)}
       {...props}
     />
   ),
@@ -141,6 +140,7 @@ const components = {
     />
   ),
   Image,
+  Link,
   CodeBlock,
   Callout,
 }
