@@ -10,7 +10,6 @@ import { Menu, X } from 'lucide-react'
 import { MobileNavigation } from '@/components/mobile-nav'
 import Image from 'next/image'
 import { siteConfig } from '@/config/site'
-import UnderlinedLink from '@/components/underlined-link'
 
 interface NavigationProps {
   items?: NavigationItem[]
@@ -62,18 +61,18 @@ export function NavigationBar({ items, children }: NavigationProps) {
           </Link>
           <nav className='hidden items-center gap-2 md:flex'>
             {items?.map((item, index) => (
-              <UnderlinedLink
+              <Link
                 key={index}
                 href={item.href}
                 className={cn(
-                  'transform rounded-full px-2 py-1 duration-300 ease-in-out sm:text-sm',
+                  'hover:text-foreground px-2 py-1 duration-300 ease-in-out sm:text-sm',
                   item.href.startsWith(`/${segment}`)
-                    ? 'rounded-full px-2 py-1 underline decoration-2 underline-offset-6'
-                    : 'text-foreground'
+                    ? 'px-2 py-1 text-foreground'
+                    : 'text-foreground-80'
                 )}
               >
                 {item.title}
-              </UnderlinedLink>
+              </Link>
             ))}
             <ModeToggle />
           </nav>
