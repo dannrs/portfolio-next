@@ -1,5 +1,3 @@
-import * as motion from '@/lib/motion'
-import { RevealAnimation } from '@/lib/motion'
 import { skills } from '@/config/skills'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -15,11 +13,7 @@ export function SkillSection() {
           {skills.map((skill, index) => {
             const Icon = skill.Icon
             return (
-              <motion.div
-                variants={RevealAnimation}
-                initial={'hidden'}
-                whileInView={'visible'}
-                viewport={{ once: true }}
+              <div
                 key={index}
                 className={cn(
                   buttonVariants({ variant: 'ghost', size: 'xl' }),
@@ -29,7 +23,7 @@ export function SkillSection() {
               >
                 <Icon className='h-6 w-6' />
                 <p>{skill.name}</p>
-              </motion.div>
+              </div>
             )
           })}
         </div>

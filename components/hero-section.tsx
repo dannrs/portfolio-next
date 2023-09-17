@@ -2,27 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import * as motion from '@/lib/motion'
-import { RevealAnimation } from '@/lib/motion'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    const element = document.getElementById('overview')
-    element?.scrollIntoView({behavior: 'smooth'})
-  }
 
   return (
     <section className='flex h-[calc(100dvh)] items-center justify-center'>
-      <motion.div
-        variants={RevealAnimation}
-        initial={'hidden'}
-        whileInView={'visible'}
-        viewport={{ once: true }}
-        className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'
-      >
+      <div className='container mx-auto flex max-w-5xl flex-col items-center justify-center md:flex-row-reverse'>
         <div className='flex w-3/4 justify-center md:w-1/2 md:justify-end'>
           <Image
             src='/images/hero.svg'
@@ -41,14 +28,14 @@ export function HeroSection() {
           </p>
           <div className='pt-2'>
             <Link href='#overview'>
-              <Button className='mr-4' onClick={handleClick}>Learn more</Button>
+              <Button className='mr-4'>Learn more</Button>
             </Link>
             <Link href='/contact'>
               <Button variant='outline'>Contact</Button>
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
