@@ -12,7 +12,7 @@ export default function UnderlinedLink({
   className,
   ...props
 }: UnderlinedLinkProps) {
-  const classes = cn('decoration-2 underline-offset-6 hover:underline', className)
+  const classes = cn('decoration-2 underline-offset-6 md:hover:underline', className)
 
   return (
     <Link href={href} className={classes} {...props}>
