@@ -12,6 +12,8 @@ Spotify has recently launched the Typescript SDK - a powerful toolkit that gives
 
 My idea was to share what I'm listening to on Spotify. I also want to create a page that shows my favorite tracks and artists of the month. In order to accomplish all of this, I am going to use the Spotify Typescript SDK that Spotify has just launched. This SDK acts as a toolkit, making it easier for developers to interact with the Spotify Web API. In addition, the power of Typescript's type safety further streamlines the development process.
 
+<Image src='/images/blog/spotify-ts-sdk-example.png' alt='Spotify Typescript SDK Example' />
+
 ## Implementation
 
 ### 1. Create a Spotify Application
@@ -33,7 +35,7 @@ That's it! Now that your Spotify application is properly configured, we're ready
 **Authorization Code Flow**  
 Depending on your application, various authentication methods are available. For this tutorial, we'll use the [Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow), which involves obtaining a refresh token that only expires when access is revoked.
 
-**Request Authorization**  
+**Step 1: Request Authorization**  
 Before you can access Spotify resources, you must request authorization for your application. Copy and paste this link into your browser to begin the process:
 
 <CodeBlock type='text'>
@@ -45,12 +47,12 @@ Before you can access Spotify resources, you must request authorization for your
   `scope` to match the information that you need to access.
 </Callout>
 
-**Retrieve code parameter**  
+**Step 2: Retrieve code parameter**  
 After permission is granted, you'll be redirected to your `redirect_uri` with a `code` parameter in the web address. Save this `code` for the next step.
 
 <CodeBlock type='text'>http://localhost:3000/?code=AQAol...Da4Si</CodeBlock>
 
-**Obtaining the refresh token**  
+**Step 3: Obtaining the refresh token**  
 You need to create a Base64-encoded string containing your `client_id` and `client_secret` to get your refresh token. Use this [online tool](https://www.base64encode.org/) to encode the string in the format `client_id:client_secret`. Then open your terminal and paste this:
 
 <CodeBlock type='text'>
@@ -73,7 +75,7 @@ The above command will return a response in JSON format and should look like thi
 ```
 </CodeBlock>
 
-**Store Information**  
+**Step 4: Store Information**  
 Store the information you get, especially the `refresh_token`, in your environment variables, which we will set up soon.
 
 ### 3. Setting up Environment Variables
@@ -252,6 +254,8 @@ export default function Home() {
 In the example above, we're using the SWR library to create a dynamic component that fetches and displays data on a Next.js app. The code fetches information from the `/api/currently-playing` endpoint we created earlier. This endpoint provides details about the song that is currently playing.
 
 The fetched song data is then conditionally rendered. If a song is currently playing, the song details will be displayed. If there's no song playing, a message is displayed indicating that no song is playing.
+
+<Image src='/images/blog/final-sample-app.jpg' alt='Final Sample Application' />
 
 ## Conclusion
 In this blog post, we've walked you through the process of using the Spotify TypeScript SDK within Next.js 13. You've learned how to set up authentication, fetch the data, and dynamically display it in your app. You can have a look at the full code of this sample app on my [GitHub](https://github.com/dannrs/spotify-ts-sdk-test).
