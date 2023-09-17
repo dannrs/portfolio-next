@@ -1,16 +1,14 @@
-import { notFound } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
-
-import * as motion from '@/lib/motion'
-import { RevealAnimation } from '@/lib/motion'
-import { Mdx } from '@/components/mdx-components'
+import { ChevronLeft } from 'lucide-react'
+import { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import '@/styles/mdx.css'
-import { Metadata } from 'next'
-import { formatDate } from '@/lib/utils'
-import Link from 'next/link'
+import { Mdx } from '@/components/mdx-components'
 import { Button } from '@/components/ui/button'
-import { ChevronLeft } from 'lucide-react'
+import { formatDate } from '@/lib/utils'
+import { HeadingType } from '@/lib/types'
 
 interface PostPageProps {
   params: {
@@ -83,6 +81,7 @@ export async function generateStaticParams(): Promise<
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params)
+  const readingTime = Math.round(post?.readingTime.minutes)
 
   if (!post) {
     notFound()
@@ -94,40 +93,38 @@ export default async function PostPage({ params }: PostPageProps) {
         <h1 className='mt-16 inline-block font-heading text-3xl leading-tight md:text-4xl'>
           {post.title}
         </h1>
-        <div className='my-4'>
+        <div className='mt-4'>
           {post.date && (
             <time
               dateTime={post.date}
-              className='block border-b pb-4 text-sm text-foreground-80'
+              className='block text-sm text-foreground-80'
             >
-              Published on {formatDate(post.date)}
+              {formatDate(post.date)}
+              <span>&nbsp;&bull;&nbsp;{readingTime} {readingTime === 1 ? 'min' : 'mins' } read</span>
             </time>
           )}
         </div>
-        <motion.div
-          variants={RevealAnimation}
-          initial={'hidden'}
-          whileInView={'visible'}
-          viewport={{ once: true }}
-        >
-          <div className='pt-4 pb-6'>
-            <details className='border border-solid p-4 rounded-sm'>
-              <summary className='cursor-pointer'>Table of Contents</summary>
-              <ul className='space-y-2 pt-4'>
-                {post.toc.map((heading: any) => {
-                  return (
-                    <li key={`#${heading.slug}`}>
-                      <Link href={`#${heading.slug}`} data-level={heading.level} className='hover:underline underline-offset-6 decoration-2 data-[level=two]:pl-0 data-[level=three]:pl-6'>
-                        {heading.text}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </details>
-          </div>
-          <Mdx code={post.body.code} />
-        </motion.div>
+        <div className='py-8'>
+          <details className='rounded-sm border border-solid p-4'>
+            <summary className='cursor-pointer'>Table of Contents</summary>
+            <ul className='space-y-2 pt-4'>
+              {post.toc.map((heading: HeadingType) => {
+                return (
+                  <li key={`#${heading.slug}`}>
+                    <Link
+                      href={`#${heading.slug}`}
+                      data-level={heading.level}
+                      className='decoration-2 underline-offset-6 hover:underline data-[level=three]:pl-6 data-[level=two]:pl-0'
+                    >
+                      {heading.text}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </details>
+        </div>
+        <Mdx code={post.body.code} />
         <div className='mt-12 flex justify-center'>
           <Link href='/blog'>
             <Button variant='ghost'>

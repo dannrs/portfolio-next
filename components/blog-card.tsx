@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import * as motion from '@/lib/motion'
-import { RevealAnimation } from '@/lib/motion'
 import { formatDate } from '@/lib/utils'
 
 export default function BlogCard() {
@@ -21,14 +19,8 @@ export default function BlogCard() {
   return (
     <>
       {posts?.length ? (
-        <motion.div
-          variants={RevealAnimation}
-          initial={'hidden'}
-          whileInView={'visible'}
-          viewport={{ once: true }}
-          className='flex flex-col gap-4'
-        >
-          {posts.map((post, index) => (
+        <div className='flex flex-col gap-4'>
+          {posts.map(post => (
             <article
               key={post._id}
               className='relative flex transform rounded-sm bg-accent p-4 duration-150 ease-in hover:bg-accent/80'
@@ -46,6 +38,13 @@ export default function BlogCard() {
                     className='block text-sm text-foreground-80'
                   >
                     {formatDate(post.date)}
+                    <span>
+                      &nbsp;&bull;&nbsp;{Math.round(post.readingTime.minutes)}
+                      &nbsp;{Math.round(post.readingTime.minutes) === 1
+                        ? 'min'
+                        : 'mins'}
+                      &nbsp;read
+                    </span>
                   </time>
                 )}
               </div>
@@ -54,7 +53,7 @@ export default function BlogCard() {
               </Link>
             </article>
           ))}
-        </motion.div>
+        </div>
       ) : (
         <p>No post published.</p>
       )}

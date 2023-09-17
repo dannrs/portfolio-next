@@ -3,6 +3,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import GithubSlugger from 'github-slugger'
+import readingTime from 'reading-time'
 
 /** @type {import('contentlayer/source-files').ComputeFields} */
 
@@ -35,6 +36,10 @@ const computedFields = {
       )
       return headings
     }
+  },
+  readingTime: {
+    type: 'json',
+    resolve: doc => readingTime(doc.body.raw)
   }
 }
 

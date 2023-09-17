@@ -56,4 +56,9 @@ export type SpotifyArtist = {
   followers: number 
 }
 
+export type HeadingType = {
+  level: string;
+  text: string;
+  slug: string;
+};
 
