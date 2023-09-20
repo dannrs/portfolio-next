@@ -134,7 +134,7 @@ devDependencies:
     specifier: 0.5.4
     version: 0.5.4(prettier@3.0.3)
   reading-time:
-    specifier: ^1.5.0
+    specifier: 1.5.0
     version: 1.5.0
   rehype:
     specifier: 12.0.1
