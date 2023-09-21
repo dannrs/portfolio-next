@@ -5,11 +5,20 @@ import { usePathname } from 'next/navigation'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { formatDate } from '@/lib/utils'
+import { slug } from 'github-slugger'
 
-export default function BlogCard() {
+interface Props {
+  tag?: string
+}
+
+export default function BlogCard({ tag }: Props) {
   const pathname = usePathname()
   let posts = allPosts
-    .filter(post => post.published)
+    .filter(
+      post =>
+        post.published &&
+        (!tag || post.tags?.map(tag => slug(tag)).includes(tag))
+    )
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   if (pathname === '/') {
@@ -40,7 +49,8 @@ export default function BlogCard() {
                     {formatDate(post.date)}
                     <span>
                       &nbsp;&bull;&nbsp;{Math.round(post.readingTime.minutes)}
-                      &nbsp;{Math.round(post.readingTime.minutes) === 1
+                      &nbsp;
+                      {Math.round(post.readingTime.minutes) === 1
                         ? 'min'
                         : 'mins'}
                       &nbsp;read

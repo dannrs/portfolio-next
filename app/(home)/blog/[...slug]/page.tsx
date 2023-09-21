@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, Hash } from 'lucide-react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -9,6 +9,7 @@ import { Mdx } from '@/components/mdx-components'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
 import { HeadingType } from '@/lib/types'
+import { slug } from 'github-slugger'
 
 interface PostPageProps {
   params: {
@@ -93,16 +94,32 @@ export default async function PostPage({ params }: PostPageProps) {
         <h1 className='mt-16 inline-block font-heading text-3xl leading-tight md:text-4xl'>
           {post.title}
         </h1>
-        <div className='mt-4'>
+        <div className='mb-2 mt-4'>
           {post.date && (
             <time
               dateTime={post.date}
               className='block text-sm text-foreground-80'
             >
               {formatDate(post.date)}
-              <span>&nbsp;&bull;&nbsp;{readingTime} {readingTime === 1 ? 'min' : 'mins' } read</span>
+              <span>
+                &nbsp;&bull;&nbsp;{readingTime}{' '}
+                {readingTime === 1 ? 'min' : 'mins'} read
+              </span>
             </time>
           )}
+        </div>
+        <div className='flex gap-2'>
+          {post.tags?.map(tag => {
+            return (
+              <Link
+                key={tag}
+                href={`/blog/tags/${slug(tag)}`}
+                className='flex items-center justify-center text-sm text-foreground-80'
+              >
+                <Hash className='inline-block h-[0.8rem] w-[0.8rem]' /> {tag}
+              </Link>
+            )
+          })}
         </div>
         <div className='py-8'>
           <details className='rounded-sm border border-solid p-4'>

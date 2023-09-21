@@ -26,9 +26,8 @@ const computedFields = {
           const flag = groups?.flag
           const content = groups?.content
           return {
-            level: flag?.length == 1 ? "one"
-            : flag?.length == 2 ? "two"
-            : "three",
+            level:
+              flag?.length == 1 ? 'one' : flag?.length == 2 ? 'two' : 'three',
             text: content,
             slug: content ? slugger.slug(content) : undefined
           }
@@ -62,6 +61,10 @@ export const Post = defineDocumentType(() => ({
     published: {
       type: 'boolean',
       default: true
+    },
+    tags: {
+      type: 'list',
+      of: { type: 'string' }
     }
   },
   computedFields
