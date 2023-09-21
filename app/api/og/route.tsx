@@ -11,7 +11,7 @@ const barlowBold = fetch(
   new URL('../../../assets/fonts/Barlow-Bold.ttf', import.meta.url)
 ).then(res => res.arrayBuffer())
 
-export async function GET(req: Request) {
+export async function GET(req: Request): Promise<ImageResponse> {
   try {
     const fontRegular = await interRegular
     const fontBold = await barlowBold
