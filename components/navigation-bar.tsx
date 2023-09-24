@@ -68,7 +68,7 @@ export function NavigationBar({ items }: NavigationProps) {
               className={cn(
                 'px-2 py-1 duration-300 ease-in-out hover:text-foreground sm:text-sm',
                 item.href.startsWith(`/${segment}`)
-                  ? 'underline underline-offset-[16px] decoration-2 text-foreground'
+                  ? 'md:underline underline-offset-[16px] decoration-2 text-foreground'
                   : 'text-foreground-80'
               )}
             >

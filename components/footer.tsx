@@ -58,7 +58,7 @@ export function Footer() {
           </div>
         </div>
         <p className='pt-8 text-center'>
-          Created by{' '}
+          Created by&nbsp;
           <UnderlinedLink
             href='https://github.com/dannrs'
             className='font-semibold'
@@ -66,20 +66,20 @@ export function Footer() {
           >
             dannrs
           </UnderlinedLink>
-          . Powered by{' '}
+          . Powered by&nbsp;
           <UnderlinedLink href='https://nextjs.org' className='font-semibold'>
-            Next.js
-          </UnderlinedLink>{' '}
-          and{' '}
+            Next.js&nbsp;
+          </UnderlinedLink>
+          and&nbsp;
           <UnderlinedLink href='https://vercel.com/' className='font-semibold'>
             Vercel
           </UnderlinedLink>
-          . Illustration by
+          . Illustration by&nbsp;
           <UnderlinedLink
             href='https://www.freepik.com/free-vector/code-typing-concept-illustration_10259340.htm#query=code%20typing&position=0&from_view=keyword&track=ais'
             className='font-semibold'
           >
-            storyset
+            storyset&nbsp;
           </UnderlinedLink>
           on Freepik.
         </p>
