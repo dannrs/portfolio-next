@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SpotifyTrack } from '@/lib/types'
+import type { SpotifyTrack } from '@/lib/types'
 import { cn } from '@/lib/utils'
 
 export function Track({ title, artist, url, trackImageUrl }: SpotifyTrack) {

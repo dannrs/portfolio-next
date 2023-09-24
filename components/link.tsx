@@ -1,4 +1,5 @@
-import NextLink, {LinkProps} from 'next/link'
+import NextLink from 'next/link'
+import type { LinkProps } from 'next/link'
 
 export default function Link(props: LinkProps) {
   return (
@@ -6,7 +7,7 @@ export default function Link(props: LinkProps) {
       <NextLink
         {...props}
         target='_blank'
-        className='inline text-white underline underline-offset-6 decoration-2'
+        className='inline text-white underline decoration-2 underline-offset-6'
       />
     </>
   )

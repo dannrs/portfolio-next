@@ -1,4 +1,4 @@
-import { SkillItem } from '@/lib/types'
+import type { SkillItem } from '@/lib/types'
 import {
   SiHtml5,
   SiCss3,

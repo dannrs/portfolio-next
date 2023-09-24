@@ -1,4 +1,5 @@
-import { AccessToken, SpotifyApi } from "@spotify/web-api-ts-sdk"
+import { SpotifyApi } from "@spotify/web-api-ts-sdk"
+import type { AccessToken } from "@spotify/web-api-ts-sdk"
 
 const client_id = process.env.SPOTIFY_CLIENT_ID as string
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string

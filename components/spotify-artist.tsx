@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SpotifyArtist } from '@/lib/types'
+import type { SpotifyArtist } from '@/lib/types'
 import { formatNumber } from '@/lib/utils'
 
 export function Artist({ name, url, artistImageUrl, followers}: SpotifyArtist) {

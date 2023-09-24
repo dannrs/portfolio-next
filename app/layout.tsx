@@ -4,7 +4,7 @@ import { Inter, Barlow } from 'next/font/google'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const fontHeading = Barlow({

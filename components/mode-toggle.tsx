@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
@@ -9,9 +9,9 @@ import { cn } from '@/lib/utils'
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
-  const [isDarkMode, setIsDarkMode] = React.useState<boolean>(true)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsDarkMode(theme === 'dark')
   }, [theme])
 

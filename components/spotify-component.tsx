@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Song } from '@/lib/types'
+import type { Song } from '@/lib/types'
 import { SiSpotify } from 'react-icons/si'
 import {
   Tooltip,

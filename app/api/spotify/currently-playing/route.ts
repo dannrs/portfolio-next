@@ -1,6 +1,6 @@
 import { revalidatePath } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
-import { SimplifiedArtist, Track } from '@spotify/web-api-ts-sdk'
+import type { SimplifiedArtist, Track } from '@spotify/web-api-ts-sdk'
 import { getSpotifyApi } from '@/lib/spotify'
 
 export async function GET(request: NextRequest) {

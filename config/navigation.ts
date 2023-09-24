@@ -1,4 +1,4 @@
-import { NavigationRoutes } from '@/lib/types'
+import type { NavigationRoutes } from '@/lib/types'
 
 export const navigationRoutes: NavigationRoutes = {
   navItem: [
