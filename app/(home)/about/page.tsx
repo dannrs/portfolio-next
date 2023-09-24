@@ -17,7 +17,7 @@ export default async function AboutPage() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <article className='container pb-8 pt-16 md:max-w-5xl'>
+      <article className='container py-4 md:max-w-5xl'>
         <h1 className='font-heading text-3xl tracking-tight md:text-4xl'>
           {page.title}
         </h1>

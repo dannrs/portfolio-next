@@ -17,7 +17,10 @@ export default function ScrollToTopButton() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop
-      setShowButton(scrollTop > 0)
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+
+      setShowButton(scrollTop > 0 && scrollTop + windowHeight < documentHeight)
     }
 
     window.addEventListener('scroll', handleScroll)

@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 import { ChevronLeft, Hash } from 'lucide-react'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -8,7 +8,7 @@ import '@/styles/mdx.css'
 import { Mdx } from '@/components/mdx-components'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
-import { HeadingType } from '@/lib/types'
+import type { HeadingType } from '@/lib/types'
 import { slug } from 'github-slugger'
 
 interface PostPageProps {
@@ -90,8 +90,8 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <div className='flex flex-col items-center'>
-      <article className='container py-6 md:max-w-4xl'>
-        <h1 className='mt-16 inline-block font-heading text-3xl leading-tight md:text-4xl'>
+      <article className='container py-4 md:max-w-4xl'>
+        <h1 className='mt-4 inline-block font-heading text-3xl leading-tight md:text-4xl'>
           {post.title}
         </h1>
         <div className='mb-2 mt-4'>

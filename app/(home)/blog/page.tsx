@@ -7,7 +7,7 @@ export const metadata = {
 export default async function BlogPage() {
   return (
     <div className='flex flex-col items-center justify-center'>
-      <div className='container space-y-4 pt-16 md:max-w-5xl'>
+      <div className='container space-y-4 py-4 md:max-w-5xl'>
         <div className='space-y-4'>
           <h1 className='font-heading text-3xl tracking-tight md:text-4xl'>
             Blog

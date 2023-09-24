@@ -4,7 +4,9 @@ import { MoveRight } from 'lucide-react'
 export default function OverviewSection() {
   return (
     <>
-      <h2 className='font-heading text-3xl md:text-4xl'>Overview</h2>
+      <h2 className='pt-4 font-heading text-3xl md:pt-8 md:text-4xl'>
+        Overview
+      </h2>
       <p className='text-foreground-80'>
         Hello, my name is Danni Ramdhani Samsudin. I&apos;m an enthusiastic web
         developer from Sumedang, Indonesia, specializing in React especially

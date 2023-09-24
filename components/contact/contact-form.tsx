@@ -74,7 +74,7 @@ export function ContactForm() {
   }
 
   return (
-    <>
+    <div className='w-full md:w-fit'>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -142,6 +142,6 @@ export function ContactForm() {
         </form>
       </Form>
       <Toaster />
-    </>
+    </div>
   )
 }

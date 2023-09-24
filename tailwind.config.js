@@ -18,6 +18,11 @@ module.exports = {
       }
     },
     extend: {
+      fontSize: {
+        '3xl': ['2rem', {
+          lineHeight: '2.25rem'
+        }]
+      },
       width: {
         60: '60rem'
       },
