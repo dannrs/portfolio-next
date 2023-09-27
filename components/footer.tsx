@@ -7,7 +7,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { navigationRoutes } from '@/config/navigation'
 import { siteConfig } from '@/config/site'
 import UnderlinedLink from '@/components/underlined-link'
-import { Separator } from './ui/separator'
+import { Separator } from '@/components/ui/separator'
 
 export function Footer() {
   const { data: currentSong } = useSWR(

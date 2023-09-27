@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { cn } from '@/lib/utils'
-import { Button } from './ui/button'
+import { Button } from '@/components/ui/button'
 
 interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
   type: 'text' | 'code'
