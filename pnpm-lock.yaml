@@ -72,8 +72,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   react-email:
-    specifier: 1.9.4
-    version: 1.9.4
+    specifier: 1.9.5
+    version: 1.9.5
   react-hook-form:
     specifier: 7.46.2
     version: 7.46.2(react@18.2.0)
@@ -938,12 +938,11 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@manypkg/find-root@2.1.0:
-    resolution: {integrity: sha512-NEYRVlZCJYhRTqQURhv+WBpDcvmsp/M423Wcdvggv8lYJYD4GtqnTMLrQaTjA10fYt/PIc3tSdwV+wxJnWqPfQ==}
+  /@manypkg/find-root@2.2.1:
+    resolution: {integrity: sha512-34NlypD5mmTY65cFAK7QPgY5Tzt0qXR4ZRXdg97xAlkiLuwXUPBEXy5Hsqzd+7S2acsLxUz6Cs50rlDZQr4xUA==}
     engines: {node: '>=14.18.0'}
     dependencies:
       '@manypkg/tools': 1.1.0
-      '@types/node': 12.20.55
       find-up: 4.1.0
       fs-extra: 8.1.0
     dev: false
@@ -2199,10 +2198,6 @@ packages:
 
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
-
-  /@types/node@12.20.55:
-    resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
-    dev: false
 
   /@types/node@20.7.0:
     resolution: {integrity: sha512-zI22/pJW2wUZOVyguFaUL1HABdmSVxpXrzIqkjsHmyUjNhPoWM1CKfvVuXfetHhIok4RY573cqS0mZ1SJEnoTg==}
@@ -3749,8 +3744,8 @@ packages:
     resolution: {integrity: sha512-n2aZ9tNfYDwaHhvFTkhFErqOMIb8uyzSQ+vGJBjZyanAKZVbGUQ1sngfk9FdkBw7G26O7AgNjLcecLffD1c7eg==}
     dev: true
 
-  /fs-extra@11.1.0:
-    resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
+  /fs-extra@11.1.1:
+    resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==}
     engines: {node: '>=14.14'}
     dependencies:
       graceful-fs: 4.2.11
@@ -5907,20 +5902,20 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-email@1.9.4:
-    resolution: {integrity: sha512-DNUQb7xzAlMga2ZppG57bnWhJnqOEcTYzxNvLA4IVCiYJkgPNVukFMOZVG2OuQ0W8ddiF6bLZBKDZHnnIenbpw==}
+  /react-email@1.9.5:
+    resolution: {integrity: sha512-c2ubADlAGKAsfmQRDQd0s3/o+wUW/WCVhwiZo+RkUgsP35RhzDBQisFfxHEX8trjNf0eSv4R9g3ASmRF1vAP8A==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     dependencies:
       '@commander-js/extra-typings': 9.4.1(commander@9.4.1)
-      '@manypkg/find-root': 2.1.0
+      '@manypkg/find-root': 2.2.1
       '@octokit/rest': 19.0.7
       '@react-email/render': 0.0.6
       chokidar: 3.5.3
       commander: 9.4.1
       detect-package-manager: 2.0.1
       esbuild: 0.16.4
-      fs-extra: 11.1.0
+      fs-extra: 11.1.1
       glob: 8.0.3
       log-symbols: 4.1.0
       normalize-path: 3.0.0
